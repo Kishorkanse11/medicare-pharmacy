@@ -1,0 +1,3 @@
+import { SearchX, RotateCcw } from 'lucide-react'
+import ProductCard from './ProductCard'
+export default function ProductGrid({ products, onAdd, recentlyAdded, resetFilters }) { if (!products.length) return <div className="empty-results"><div className="empty-icon"><SearchX size={26}/></div><h3>No products found</h3><p>Try a different search or browse all healthcare essentials.</p><button className="btn-primary" onClick={resetFilters}><RotateCcw size={16}/> Reset filters</button></div>; return <div className="product-grid">{products.map(product => <ProductCard key={product.id} product={product} onAdd={onAdd} recentlyAdded={recentlyAdded === product.id}/>)}</div> }

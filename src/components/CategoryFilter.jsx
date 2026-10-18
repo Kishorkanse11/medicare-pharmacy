@@ -1,0 +1,3 @@
+import { LayoutGrid, Pill, Hand, HeartPulse, Thermometer, Sparkles } from 'lucide-react'
+const icons = { 'All Products': LayoutGrid, Vitamins: Pill, 'Personal Care': Hand, 'Pain Relief': HeartPulse, 'First Aid': Thermometer, Wellness: Sparkles }
+export default function CategoryFilter({ categories, active, setActive, counts }) { return <div className="category-strip" aria-label="Filter by category">{categories.map(category => { const Icon = icons[category] || LayoutGrid; return <button key={category} className={`category-chip ${active === category ? 'selected' : ''}`} aria-pressed={active === category} onClick={() => setActive(category)}><Icon size={16}/><span>{category}</span><small>{counts[category] ?? 0}</small></button> })}</div> }
